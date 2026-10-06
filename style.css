@@ -1,0 +1,401 @@
+/* 따뜻한 카페 색상과 기본 페이지 설정 */
+:root {
+  font-family: '맑은 고딕', sans-serif;
+  color: #3f3026;
+  background: #faf6f0;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 36px 0;
+  background: #faf6f0;
+}
+
+header,
+main {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+header {
+  padding: 0 20px 24px;
+  color: #6b4226;
+  text-align: center;
+}
+
+header div {
+  display: inline-block;
+  font-size: 56px;
+  line-height: 1.2;
+  animation: coffee-sway 5s ease-in-out infinite;
+}
+
+/* 로고가 천천히 좌우로 흔들립니다. */
+@keyframes coffee-sway {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  header div {
+    animation: none;
+  }
+
+  .tab-count.badge-pop {
+    animation: none;
+  }
+}
+
+header h1 {
+  margin: 8px 0 6px;
+  font-size: 30px;
+}
+
+header p {
+  margin: 0;
+  color: #79695d;
+}
+
+.tab-menu {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 18px 0 14px;
+  border-bottom: 1px solid #e2d8ce;
+}
+
+.tab-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 6px 12px;
+  border: 0;
+  background: transparent;
+  color: #a1846d;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  color: #6b4226;
+}
+
+.tab-button.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: #6b4226;
+  content: "";
+}
+
+.tab-count {
+  display: inline-flex;
+  min-width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #6b4226;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.tab-count.badge-pop {
+  animation: badge-pop 420ms ease-out;
+}
+
+@keyframes badge-pop {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  35% {
+    transform: scale(1.35);
+  }
+
+  65% {
+    transform: scale(0.92);
+  }
+}
+
+main {
+  padding: 28px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 8px 28px rgb(75 48 28 / 10%);
+}
+
+#order-form > div {
+  margin-bottom: 18px;
+}
+
+#order-form > div > label {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+#order-form input:not([type="radio"]):not([type="checkbox"]),
+#order-form select,
+#order-form textarea {
+  display: block;
+  width: 100%;
+  min-height: 42px;
+  padding: 10px;
+  border: 1px solid #d8cfc5;
+  border-radius: 8px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+}
+
+#order-form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+#order-form input:focus,
+#order-form select:focus,
+#order-form textarea:focus {
+  border-color: #6b4226;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(107 66 38 / 16%);
+}
+
+#order-form fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+  min-width: 0;
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid #e2d8ce;
+  border-radius: 8px;
+}
+
+#order-form legend {
+  padding: 0 5px;
+  color: #6b4226;
+  font-weight: 700;
+}
+
+#order-form input[type="radio"],
+#order-form input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0 -7px 0 0;
+  accent-color: #6b4226;
+}
+
+#order-form fieldset label {
+  line-height: 1.5;
+}
+
+#estimated-price {
+  margin: 22px 0 16px;
+  color: #6b4226;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+
+#order-form button {
+  display: block;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 16px;
+  border: 1px solid #6b4226;
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+#order-form button[type="submit"] {
+  background: #6b4226;
+  color: #fff;
+}
+
+#order-form button[type="submit"]:hover {
+  background: #805333;
+  box-shadow: 0 4px 10px rgb(75 48 28 / 18%);
+  transform: translateY(-2px);
+}
+
+#order-form button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+  transform: none;
+  box-shadow: none;
+}
+
+#order-form button[type="reset"] {
+  margin-top: 10px;
+  background: #fff;
+  color: #6b4226;
+}
+
+#order-form button[type="reset"]:hover {
+  background: #faf6f0;
+}
+
+#order-confirmation:not([hidden]) {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #e8f4df;
+  color: #356b3f;
+}
+
+.order-card {
+  margin-bottom: 12px;
+  padding: 16px;
+  border-left: 4px solid #6b4226;
+  border-radius: 8px;
+  background: #faf6f0;
+  text-align: left;
+}
+
+.order-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.order-card-title {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.cancel-order {
+  flex: 0 0 auto;
+  padding: 5px 10px;
+  border: 1px solid #d8c8b9;
+  border-radius: 6px;
+  background: #fff;
+  color: #6b4226;
+  font: inherit;
+  cursor: pointer;
+}
+
+.cancel-order:hover {
+  background: #f3e9df;
+}
+
+.order-card-details,
+.order-card-meta {
+  margin: 8px 0 0;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.order-card-meta {
+  color: #79695d;
+  font-size: 13px;
+}
+
+.orders-empty {
+  padding: 36px 12px;
+  color: #79695d;
+  text-align: center;
+}
+
+.orders-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid #e2d8ce;
+}
+
+#orders-total {
+  margin: 0 0 12px;
+  color: #6b4226;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: right;
+}
+
+#clear-orders {
+  display: block;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #6b4226;
+  border-radius: 8px;
+  background: #fff;
+  color: #6b4226;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 160ms ease, color 160ms ease;
+}
+
+#clear-orders:hover {
+  background: #faf6f0;
+}
+
+/* hidden 속성이나 클래스를 사용하면 영역을 감춥니다. */
+[hidden],
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 24px 0;
+  }
+
+  main {
+    width: calc(100% - 24px);
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  header h1 {
+    font-size: 26px;
+  }
+
+  .tab-menu {
+    gap: 12px;
+  }
+
+  .tab-button {
+    gap: 5px;
+    padding-right: 3px;
+    padding-left: 3px;
+    font-size: 14px;
+  }
+
+  .order-card {
+    padding: 13px;
+  }
+
+  #order-form fieldset {
+    gap: 10px;
+    padding: 12px;
+  }
+}
